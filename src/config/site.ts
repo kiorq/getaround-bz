@@ -248,6 +248,12 @@ export const siteConfig = {
         ],
       },
       {
+        heading: "Company",
+        links: [
+          { label: "Press & Media", href: "/press" },
+        ],
+      },
+      {
         heading: "Contact",
         links: [
           {
