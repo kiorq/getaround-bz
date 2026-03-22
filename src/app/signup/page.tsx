@@ -215,7 +215,7 @@ export default function PlanPage() {
               <AnimatedDots />
               <h2
                 className="text-3xl text-gray-900 mt-6 mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
               >
                 Checking availability for your route
               </h2>
@@ -234,7 +234,7 @@ export default function PlanPage() {
               </span>
               <h2
                 className="text-5xl text-gray-900 mb-5"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
               >
                 You're early.
               </h2>
@@ -299,7 +299,7 @@ export default function PlanPage() {
                   <div>
                     <h2
                       className="text-3xl sm:text-4xl text-gray-900 mb-2"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                     >
                       Where should we send your ride details?
                     </h2>
@@ -337,7 +337,7 @@ export default function PlanPage() {
                   <div>
                     <h2
                       className="text-3xl sm:text-4xl text-gray-900 mb-8"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                     >
                       {step.question}
                     </h2>
@@ -360,7 +360,7 @@ export default function PlanPage() {
                   <div>
                     <h2
                       className="text-3xl sm:text-4xl text-gray-900 mb-1"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                     >
                       {step.question}
                     </h2>

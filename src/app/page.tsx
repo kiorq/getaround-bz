@@ -125,7 +125,7 @@ export default function Home() {
         {/* Headline — serif display font */}
         <h1
           className="text-5xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-gray-900 mb-6"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
         >
           {hero.headline}<br />
           Without the{" "}
@@ -183,7 +183,7 @@ export default function Home() {
 
           <h2
             className="text-4xl sm:text-5xl text-center text-gray-900 mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
           >
             {features.heading}
           </h2>
@@ -215,7 +215,7 @@ export default function Home() {
                     </div>
                     <h3
                       className="text-xl sm:text-2xl text-gray-900"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                     >
                       {item.title}
                     </h3>
@@ -242,7 +242,7 @@ export default function Home() {
         </div>
         <h2
           className="text-4xl sm:text-5xl text-center text-gray-900 mb-4"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
         >
           {howItWorks.heading}
         </h2>
@@ -252,13 +252,13 @@ export default function Home() {
             <div key={step.number} className="flex flex-col">
               <span
                 className="text-6xl text-[#a8d800] mb-4 leading-none"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
               >
                 {step.number}
               </span>
               <h3
                 className="text-xl text-gray-900 mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
               >
                 {step.title}
               </h3>
@@ -273,7 +273,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-5">
           <h2
             className="text-4xl sm:text-5xl text-center text-gray-900 mb-14"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
           >
             {faq.heading}
           </h2>
@@ -283,7 +283,7 @@ export default function Home() {
               <div key={item.question} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#a8d800]/30 transition-colors">
                 <h4
                   className="text-gray-900 text-lg mb-2"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                 >
                   {item.question}
                 </h4>
