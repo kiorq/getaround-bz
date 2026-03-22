@@ -22,10 +22,10 @@ export const siteConfig = {
 
   // ── SEO ──────────────────────────────────────────────────────────────────
   seo: {
-    title: "Taxi in Belize Made Easy | GetAround Belize",
+    title: "Belize Airport Taxi — Book in Advance | GetAround",
     titleTemplate: "%s | GetAround Belize",   // used for inner pages
     description:
-      "Book trusted taxis in Belize instantly. No apps, no hassle. Get matched with verified local drivers for safe, reliable rides across Belize.",
+      "Arrange your Belize airport transfer before you land. Verified drivers, upfront pricing, no waiting. Serving Belize City, San Pedro, Placencia & more.",
     keywords: [
       "Belize taxi",
       "taxi Belize airport",
@@ -77,30 +77,27 @@ export const siteConfig = {
 
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    headline: "Book a Taxi in Belize",
-    headlineAccent: "Without the Hassle.",
+    headline: "Book a trusted taxi in Belize",
+    headlineAccent: "— no guessing.",
     subheadline:
-      "No apps, no confusion. Get matched with a verified local driver in seconds and know exactly who's picking you up — before they arrive.",
+      "No apps, no confusion. Get matched with a verified local driver and know exactly who's picking you up — before they arrive.",
     primaryCta: {
       label: "Plan your ride",
       href:  "/signup",
     },
-    secondaryCta: {
-      label: "Check availability",
-      href:  "/signup",
-    },
-    // Trust signals shown below the CTAs
+    secondaryCta: null as null | { label: string; href: string },
+    // Trust signals shown below the CTA
     trustBadges: [
-      "Verified local drivers",
-      "Know your price upfront",
-      "Available across Belize",
+      "Verified, licensed drivers",
+      "Know your driver before pickup",
+      "No negotiating or guesswork",
     ],
   },
 
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
-    heading: "Powerful features, effortless travel",
-    subheading: "Everything you need to move around Belize with confidence",
+    heading: "Everything you need for a reliable ride in Belize",
+    subheading: "Travel Belize with confidence",
     items: [
       {
         title: "Trusted Local Drivers",
@@ -136,21 +133,21 @@ export const siteConfig = {
     steps: [
       {
         number: "01",
-        title: "Create Account",
+        title: "Enter your route",
         description:
-          "Sign up in under a minute with your phone number or email.",
+          "Tell us where you're headed and when. Takes less than a minute.",
       },
       {
         number: "02",
-        title: "Book a Ride",
+        title: "We match you with a verified driver",
         description:
-          "Enter your destination and get matched with a nearby driver instantly.",
+          "We find a licensed, rated local driver for your trip — no guesswork on your end.",
       },
       {
         number: "03",
-        title: "Ride & Pay",
+        title: "Get your ride details before pickup",
         description:
-          "Track your trip live, arrive safely, and pay seamlessly in-app.",
+          "See your driver's name and vehicle before they arrive. You're in control.",
       },
     ],
   },
@@ -216,7 +213,7 @@ export const siteConfig = {
       {
         question: "Is this like Uber?",
         answer:
-          "No. We work with existing licensed Belize taxi drivers — not replace them. GetAround Belize helps organize rides more reliably for travelers.",
+          "No. We work with licensed Belize taxi drivers — not replace them. GetAround Belize makes those rides more reliable and organized for travelers.",
       },
       {
         question: "Can I book ahead of time?",
@@ -246,16 +243,16 @@ export const siteConfig = {
       {
         heading: "Product",
         links: [
-          { label: "Features", href: "#features" },
-          { label: "Pricing",  href: "#pricing" },
-          { label: "FAQ",      href: "#faq" },
+          { label: "Features",    href: "#features" },
+          { label: "How It Works", href: "#how-it-works" },
+          { label: "FAQ",         href: "#faq" },
         ],
       },
       {
         heading: "Legal",
         links: [
-          { label: "Terms of Service", href: "/terms" },
-          { label: "Privacy Policy",   href: "/privacy" },
+          { label: "Terms of Service", href: "#" },
+          { label: "Privacy Policy",   href: "#" },
         ],
       },
       {
@@ -269,8 +266,8 @@ export const siteConfig = {
       },
     ],
     cta: {
-      label: "Book a Ride",
-      href:  "#pricing",
+      label: "Plan your ride",
+      href:  "/signup",
     },
     copyright: process.env.NEXT_PUBLIC_COPYRIGHT ?? "© 2026 GetAround Belize. All rights reserved.",
   },
@@ -305,7 +302,7 @@ interface SiteConfig {
     headlineAccent: string;
     subheadline: string;
     primaryCta: CtaButton;
-    secondaryCta: CtaButton;
+    secondaryCta: CtaButton | null;
     trustBadges: string[];
   };
   features: {

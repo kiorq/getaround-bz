@@ -50,7 +50,7 @@ function Squiggle({ className }: { className?: string }) {
 // ─── Logo — text only ─────────────────────────────────────────────────────────
 function Logo() {
   return (
-    <span className="font-bold text-lg text-gray-900 tracking-tight" style={{ fontFamily: "var(--font-body)" }}>
+    <span className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight" style={{ fontFamily: "var(--font-body)" }}>
       {siteConfig.nameDisplay.prefix}
       <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
     </span>
@@ -146,12 +146,14 @@ export default function Home() {
           >
             {hero.primaryCta.label}
           </a>
-          <a
-            href={hero.secondaryCta.href}
-            className="w-full sm:w-auto border border-gray-200 text-gray-700 font-medium px-10 py-4 rounded-full hover:bg-gray-100 hover:border-gray-300 transition-colors text-base"
-          >
-            {hero.secondaryCta.label}
-          </a>
+          {hero.secondaryCta && (
+            <a
+              href={hero.secondaryCta.href}
+              className="w-full sm:w-auto border border-gray-200 text-gray-700 font-medium px-10 py-4 rounded-full hover:bg-gray-100 hover:border-gray-300 transition-colors text-base"
+            >
+              {hero.secondaryCta.label}
+            </a>
+          )}
         </div>
 
         {/* Trust badges */}
@@ -326,7 +328,7 @@ export default function Home() {
               <h5 className="text-white text-xs font-bold uppercase tracking-widest mb-4">{col.heading}</h5>
               <ul className="space-y-3">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <a href={link.href} className="text-gray-500 text-sm hover:text-white transition-colors">
                       {link.label}
                     </a>

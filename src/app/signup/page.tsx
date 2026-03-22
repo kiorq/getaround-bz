@@ -1,8 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { useForm } from "@formspree/react";
 import { siteConfig } from "@/config/site";
+
+// ─── Squiggle decoration (matches landing page) ───────────────────────────────
+function Squiggle({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      viewBox="0 0 120 400"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M60 10 C20 60, 100 110, 60 160 C20 210, 100 260, 60 310 C20 360, 80 390, 60 400"
+        stroke="#a8d800"
+        strokeWidth="18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.18"
+      />
+    </svg>
+  );
+}
 
 // ─── Step definitions ─────────────────────────────────────────────────────────
 type Step =
@@ -55,27 +78,29 @@ const TOTAL_STEPS = STEPS.length; // excluding processing + final
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 function Logo() {
   return (
-    <Link href="/" className="font-bold text-base text-gray-900 tracking-tight hover:opacity-80 transition-opacity">
+    <Link href="/" className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight hover:opacity-80 transition-opacity">
       {siteConfig.nameDisplay.prefix}
       <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
     </Link>
   );
 }
 
-// ─── Progress bar ─────────────────────────────────────────────────────────────
+// ─── Progress bar — segmented ─────────────────────────────────────────────────
 function ProgressBar({ step, total }: { step: number; total: number }) {
-  const pct = Math.round((step / total) * 100);
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-xs text-gray-500 font-medium">Step {step} of {total}</span>
-        <span className="text-xs text-gray-500">{pct}%</span>
-      </div>
-      <div className="h-1 w-full bg-gray-100 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-[#a8d800] rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${pct}%` }}
-        />
+      <span className="text-xs text-gray-500 font-medium block mb-3">
+        Step {step} of {total}
+      </span>
+      <div className="flex gap-1.5">
+        {Array.from({ length: total }).map((_, i) => (
+          <div
+            key={i}
+            className={`h-1 flex-1 rounded-full transition-all duration-400 ${
+              i < step ? "bg-[#a8d800]" : "bg-gray-300"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -98,6 +123,7 @@ function AnimatedDots() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function PlanPage() {
+  const [formspreeState, submitToFormspree] = useForm("mqeyondj");
   const [currentStep, setCurrentStep] = useState(0); // 0-indexed into STEPS
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
   const [email, setEmail] = useState("");
@@ -105,6 +131,9 @@ export default function PlanPage() {
   const [multiSelected, setMultiSelected] = useState<string[]>([]);
   const [phase, setPhase] = useState<"questions" | "processing" | "done">("questions");
   const [visible, setVisible] = useState(true);
+
+  // Suppress unused variable warning — formspreeState available for error handling if needed
+  void formspreeState;
 
   const step = STEPS[currentStep];
   const humanStep = currentStep + 1; // 1-indexed for display
@@ -168,33 +197,44 @@ export default function PlanPage() {
   // ── Processing → done ─────────────────────────────────────────────────────
   function startProcessing() {
     setPhase("processing");
-    // TODO: send `answers` to your API / waitlist endpoint here
-    // e.g. fetch("/api/waitlist", { method: "POST", body: JSON.stringify(answers) })
-    setTimeout(() => {
-      setPhase("done");
-    }, 2800);
+
+    // Build payload — all values must be strings (arrays → comma-joined)
+    const payload: Record<string, string> = {};
+    for (const [key, value] of Object.entries(answers)) {
+      payload[key] = Array.isArray(value) ? value.join(", ") : value;
+    }
+
+    // Submit via @formspree/react — errors are silently swallowed so UX is unaffected
+    submitToFormspree(payload);
+
+    // Always advance to "done" after the processing animation completes
+    setTimeout(() => setPhase("done"), 2800);
   }
 
   // ─── Render ───────────────────────────────────────────────────────────────
 
   return (
     <div
-      className="min-h-screen bg-white flex flex-col"
+      className="relative min-h-screen bg-white flex flex-col items-center justify-center px-5 py-16 overflow-hidden"
       style={{ fontFamily: "var(--font-body)" }}
     >
-      {/* Minimal header */}
-      <header className="flex items-center justify-between px-6 py-5 max-w-lg mx-auto w-full">
-        <Logo />
-        {phase === "questions" && (
-          <span className="text-xs text-gray-500">
-            Set up your ride details
-          </span>
-        )}
-      </header>
+      {/* ── Decorative squiggles — above brand and below form ────────────── */}
+      <Squiggle className="pointer-events-none absolute top-0 left-1/2 -translate-x-[280px] h-28 w-10 rotate-90 hidden sm:block" />
+      <Squiggle className="pointer-events-none absolute top-0 left-1/2 translate-x-[200px] h-28 w-10 rotate-90 hidden sm:block" />
+      <Squiggle className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-[280px] h-28 w-10 rotate-90 hidden sm:block" />
+      <Squiggle className="pointer-events-none absolute bottom-0 left-1/2 translate-x-[200px] h-28 w-10 rotate-90 hidden sm:block" />
+      <main className="w-full max-w-md flex flex-col">
+        {/* Brand + subtitle */}
+        <div className="mb-10">
+          <Logo />
+          {phase === "questions" && (
+            <span className="text-xs text-gray-500 mt-1 block">
+              Set up your ride details
+            </span>
+          )}
+        </div>
 
-      {/* Main content */}
-      <main className="flex-1 flex items-start justify-center px-5 pt-6 pb-16">
-        <div className="w-full max-w-md">
+        <div className="w-full">
 
           {/* ── Processing screen ──────────────────────────────────────── */}
           {phase === "processing" && (
@@ -204,10 +244,10 @@ export default function PlanPage() {
                 className="text-3xl text-gray-900 mt-6 mb-3"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
-                Checking availability
+                Checking availability for your route
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
-                We're reviewing whether GetAround Belize is available for trips like yours.
+                We're finding the right driver for your trip.
               </p>
             </div>
           )}
@@ -226,10 +266,10 @@ export default function PlanPage() {
                 You're early.
               </h2>
               <p className="text-gray-500 text-base leading-relaxed mb-2 max-w-sm mx-auto">
-                GetAround Belize isn't available for riders like you just yet.
+                GetAround Belize isn't available for your route just yet.
               </p>
               <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-sm mx-auto">
-                We're rolling it out carefully to make sure the experience is reliable, safe, and built for real travel needs in Belize. We'll let you know as soon as it opens up for your trip.
+                We're rolling it out carefully to ensure every ride is reliable, safe, and handled by a verified driver. We'll notify you as soon as it's ready.
               </p>
 
               {/* Trust signals */}
@@ -256,6 +296,15 @@ export default function PlanPage() {
               >
                 Back to homepage
               </Link>
+              <p className="mt-6 text-xs text-gray-400">
+                Need a ride sooner?{" "}
+                <a
+                  href={`mailto:${siteConfig.footer.columns[2]?.links[0]?.href?.replace("mailto:", "") ?? "hello@getaround.bz"}`}
+                  className="text-gray-600 underline underline-offset-2 hover:text-gray-900 transition-colors"
+                >
+                  Contact us
+                </a>
+              </p>
             </div>
           )}
 
@@ -279,10 +328,10 @@ export default function PlanPage() {
                       className="text-3xl sm:text-4xl text-gray-900 mb-2"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      Let's get your ride started
+                      Where should we send your ride details?
                     </h2>
                     <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                      A few quick details so we can match the right experience for your trip.
+                      A few quick questions so we can line up the right driver for your trip.
                     </p>
                     <div className="space-y-3">
                       <input
@@ -299,7 +348,7 @@ export default function PlanPage() {
                       )}
                       <button
                         onClick={handleEmail}
-                        className="w-full bg-[#a8d800] text-black font-bold py-4 rounded-2xl hover:bg-[#94c200] transition-colors text-base"
+                        className="w-full bg-[#a8d800] text-black font-bold py-4 rounded-2xl hover:bg-[#94c200] transition-colors text-base cursor-pointer"
                       >
                         Continue
                       </button>
@@ -324,7 +373,7 @@ export default function PlanPage() {
                         <button
                           key={opt}
                           onClick={() => handleSingle(opt)}
-                          className="w-full text-left border border-gray-150 bg-gray-100 hover:bg-[#a8d800]/8 hover:border-[#a8d800]/40 text-gray-800 font-medium py-4 px-5 rounded-2xl transition-all text-base active:scale-[0.99]"
+                          className="w-full text-left border border-gray-200 bg-gray-50 hover:bg-[#a8d800]/10 hover:border-[#a8d800]/50 text-gray-800 font-medium py-4 px-5 rounded-2xl transition-all text-base active:scale-[0.99] cursor-pointer"
                         >
                           {opt}
                         </button>
@@ -353,12 +402,12 @@ export default function PlanPage() {
                           <button
                             key={opt}
                             onClick={() => !maxed && toggleMulti(opt)}
-                            className={`px-4 py-2.5 rounded-full border text-sm font-medium transition-all ${
+                            className={`px-4 py-2.5 rounded-full border text-sm font-medium transition-all cursor-pointer ${
                               selected
                                 ? "bg-[#a8d800] border-[#a8d800] text-black"
                                 : maxed
-                                ? "border-gray-200 text-gray-500 cursor-not-allowed bg-white"
-                                : "border-gray-200 text-gray-700 bg-white hover:border-[#a8d800]/50 hover:bg-[#a8d800]/5"
+                                ? "border-gray-200 text-gray-400 cursor-not-allowed bg-white opacity-50"
+                                : "border-gray-200 text-gray-700 bg-white hover:border-[#a8d800]/60 hover:bg-[#a8d800]/8"
                             }`}
                           >
                             {opt}
@@ -369,7 +418,7 @@ export default function PlanPage() {
                     <button
                       onClick={handleMultiContinue}
                       disabled={multiSelected.length === 0}
-                      className="w-full bg-[#a8d800] text-black font-bold py-4 rounded-2xl hover:bg-[#94c200] transition-colors text-base disabled:opacity-30 disabled:cursor-not-allowed"
+                      className="w-full bg-[#a8d800] text-black font-bold py-4 rounded-2xl hover:bg-[#94c200] transition-colors text-base disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                     >
                       Continue
                     </button>
@@ -380,6 +429,10 @@ export default function PlanPage() {
           )}
 
         </div>
+
+        <footer className="text-center mt-12">
+          <p className="text-xs text-gray-400">{siteConfig.footer.copyright}</p>
+        </footer>
       </main>
     </div>
   );
