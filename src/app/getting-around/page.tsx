@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
-  title: "How to Get Around Belize | Complete Transportation Guide | GetAround",
+  title: "How to Get Around Belize: Taxis, Ferries, Flights & More | GetAround",
   description:
     "How to get around Belize — from the airport to San Pedro, Caye Caulker, and beyond. Learn about taxis, water taxis, buses, flights, and how to book reliable rides in advance.",
   keywords: [
