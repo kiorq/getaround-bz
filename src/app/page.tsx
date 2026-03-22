@@ -171,27 +171,49 @@ export default function Home() {
       </section>
 
       {/* ── Pain Points ───────────────────────────────────────────────────── */}
-      <section className="py-24">
+      <section className="bg-gray-900 text-white py-24">
         <div className="max-w-6xl mx-auto px-5">
           <h2
-            className="text-4xl sm:text-5xl text-center text-gray-900 mb-16"
+            className="text-4xl sm:text-5xl text-center text-white mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
           >
             {painPoints.heading}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {painPoints.items.map((item) => (
-              <div key={item.title} className="border-b border-gray-200 pb-8">
-                <h3
-                  className="text-xl sm:text-2xl text-gray-900 mb-3"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-                >
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed max-w-xl">{item.description}</p>
+          <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto text-lg">
+            The usual way things work in Belize
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-700">
+            {painPoints.items.map((item, i) => (
+              <div key={item.title} className="bg-gray-900 p-10 group hover:bg-gray-800 transition-colors">
+                <div className="flex items-start gap-5">
+                  <span
+                    className="text-5xl font-black text-[#ef4444]/30 group-hover:text-[#ef4444]/50 transition-colors leading-none mt-1"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <svg className="w-5 h-5 text-[#ef4444]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <h3
+                        className="text-xl sm:text-2xl text-white"
+                        style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
+          <p className="text-center mt-12 text-lg">
+            <span className="text-gray-400">Sound familiar?</span>{" "}
+            <span className="text-[#a8d800] font-bold">GetAround Belize fixes this.</span>
+          </p>
         </div>
       </section>
 
