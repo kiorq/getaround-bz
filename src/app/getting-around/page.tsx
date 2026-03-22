@@ -41,6 +41,14 @@ export const metadata: Metadata = {
     description:
       "Everything you need to know about getting around Belize — taxis, water taxis, buses, domestic flights, and how to book reliable rides in advance.",
     type: "article",
+    images: [
+      {
+        url: `${siteConfig.url}/ads/no-text/getaroundbz-notext-01.png`,
+        width: 1200,
+        height: 630,
+        alt: "GetAround Belize - Reliable Taxi Booking",
+      },
+    ],
   },
 };
 
