@@ -15,7 +15,7 @@ function Underline() {
       >
         <path
           d="M2 7 C40 2, 80 9, 120 5 C160 1, 200 8, 240 4 C265 2, 285 7, 298 5"
-          stroke="#a8d800"
+          stroke="#5f7800"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -52,7 +52,7 @@ function Logo() {
   return (
     <span className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight">
       {siteConfig.nameDisplay.prefix}
-      <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
+      <span className="text-[#5f7800]">{siteConfig.nameDisplay.suffix}</span>
     </span>
   );
 }
@@ -109,6 +109,8 @@ export default function Home() {
         </div>
       </nav>
 
+      <main>
+
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative max-w-4xl mx-auto px-5 pt-24 pb-28 text-center">
 
@@ -129,7 +131,7 @@ export default function Home() {
         >
           {hero.headline}<br />
           Without the{" "}
-          <span className="text-[#a8d800]"><Underline /></span>
+          <span className="text-[#5f7800]"><Underline /></span>
           .
         </h1>
 
@@ -160,7 +162,7 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           {hero.trustBadges.map((badge) => (
             <span key={badge} className="flex items-center gap-1.5 text-sm text-gray-500">
-              <svg className="w-4 h-4 text-[#a8d800] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-4 h-4 text-[#5f7800] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
               </svg>
               {badge}
@@ -187,7 +189,7 @@ export default function Home() {
           >
             {features.heading}
           </h2>
-          <p className="text-gray-500 text-center mb-16 max-w-xl mx-auto">
+          <p className="text-gray-600 text-center mb-16 max-w-xl mx-auto">
             {features.subheading}
           </p>
 
@@ -210,7 +212,7 @@ export default function Home() {
                 {/* Icon + text */}
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 bg-[#a8d800]/10 rounded-lg flex items-center justify-center text-[#a8d800] shrink-0">
+                    <div className="w-8 h-8 bg-[#a8d800]/10 rounded-lg flex items-center justify-center text-[#5f7800] shrink-0">
                       {icons[item.icon]}
                     </div>
                     <h3
@@ -220,7 +222,7 @@ export default function Home() {
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-gray-500 leading-relaxed max-w-xl">
+                  <p className="text-gray-600 leading-relaxed max-w-xl">
                     {item.description}
                   </p>
                 </div>
@@ -251,7 +253,7 @@ export default function Home() {
           {howItWorks.steps.map((step) => (
             <div key={step.number} className="flex flex-col">
               <span
-                className="text-6xl text-[#a8d800] mb-4 leading-none"
+                className="text-6xl text-[#5f7800] mb-4 leading-none"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
               >
                 {step.number}
@@ -281,13 +283,13 @@ export default function Home() {
           <div className="space-y-3">
             {faq.items.map((item) => (
               <div key={item.question} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#a8d800]/30 transition-colors">
-                <h4
+                <h3
                   className="text-gray-900 text-lg mb-2"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
                 >
                   {item.question}
-                </h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.answer}</p>
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
@@ -311,6 +313,8 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
+
       {/* ── Footer ────────────────────────────────────────────────────────── */}
       <footer className="bg-gray-900 text-white pt-14 pb-8 px-5">
         <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10 mb-10">
@@ -318,7 +322,7 @@ export default function Home() {
           <div className="col-span-2 sm:col-span-1">
             <span className="font-bold text-lg">
               {siteConfig.nameDisplay.prefix}
-              <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
+              <span className="text-[#5f7800]">{siteConfig.nameDisplay.suffix}</span>
             </span>
             <p className="text-gray-500 text-sm mt-3 leading-relaxed">{footer.tagline}</p>
           </div>

@@ -12,13 +12,6 @@ const withText = [
   { src: "/ads/with-text/getaroundbz-ad-08.png", alt: "GetAround Belize ad 08" },
 ];
 
-const noText = [
-  { src: "/ads/no-text/getaroundbz-notext-01.png", alt: "GetAround Belize scene 01" },
-  { src: "/ads/no-text/getaroundbz-notext-02.png", alt: "GetAround Belize scene 02" },
-  { src: "/ads/no-text/getaroundbz-notext-03.png", alt: "GetAround Belize scene 03" },
-  { src: "/ads/no-text/getaroundbz-notext-04.png", alt: "GetAround Belize scene 04" },
-  { src: "/ads/no-text/getaroundbz-notext-05.png", alt: "GetAround Belize scene 05" },
-];
 
 export const metadata = {
   title: "Press & Media | GetAround Belize",
@@ -56,12 +49,18 @@ export default function PressPage() {
             Brand assets and marketing images for GetAround Belize. Free to use for editorial and press coverage.
           </p>
           <p className="text-sm text-gray-400 mt-3">
-            Questions? <a href={`mailto:${siteConfig.footer.columns[1]?.links[0]?.href?.replace("mailto:", "") ?? "hello@getaround.bz"}`} className="underline underline-offset-2 hover:text-gray-600 transition-colors">Get in touch</a>
+            Press inquiries?{" "}
+            <a
+              href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@getaround.bz"}`}
+              className="text-gray-600 underline underline-offset-2 hover:text-gray-900 transition-colors"
+            >
+              {process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@getaround.bz"}
+            </a>
           </p>
         </div>
 
         {/* With text */}
-        <section className="mb-20">
+        <section>
           <h2
             className="text-xl text-gray-900 mb-8"
             style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
@@ -76,15 +75,14 @@ export default function PressPage() {
                 download
                 className="group block rounded-2xl overflow-hidden border border-gray-100 hover:border-[#a8d800]/40 transition-all hover:shadow-lg"
               >
-                <div className="relative aspect-[1.91/1] w-full bg-gray-50">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
                 <div className="px-4 py-3 flex items-center justify-between">
                   <p className="text-xs text-gray-400 truncate pr-2">{img.alt}</p>
                   <span className="text-xs text-[#a8d800] font-medium shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -96,41 +94,6 @@ export default function PressPage() {
           </div>
         </section>
 
-        {/* No text */}
-        <section>
-          <h2
-            className="text-xl text-gray-900 mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-          >
-            Scene images
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {noText.map((img) => (
-              <a
-                key={img.src}
-                href={img.src}
-                download
-                className="group block rounded-2xl overflow-hidden border border-gray-100 hover:border-[#a8d800]/40 transition-all hover:shadow-lg"
-              >
-                <div className="relative aspect-[1.91/1] w-full bg-gray-50">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="px-4 py-3 flex items-center justify-between">
-                  <p className="text-xs text-gray-400 truncate pr-2">{img.alt}</p>
-                  <span className="text-xs text-[#a8d800] font-medium shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Download ↓
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
 
       </main>
 
