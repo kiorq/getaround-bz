@@ -165,7 +165,7 @@ export default function GettingAroundPage() {
         </section>
 
         {/* Intro */}
-        <section className="max-w-4xl mx-auto px-5 pb-20">
+        <section className="max-w-4xl mx-auto px-5 py-16">
           <div className="prose prose-lg max-w-none text-gray-600">
             <p>
               Getting around Belize without a car is easier than you might think. There's no Uber or Lyft here — but taxis, buses, water taxis, and shuttles cover most travel needs for visitors.
