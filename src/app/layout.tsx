@@ -1,6 +1,22 @@
 import type { Metadata, Viewport } from "next";
+import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 // ─── Viewport ────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
@@ -85,7 +101,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased scroll-smooth">
+    <html lang="en" className={`h-full antialiased scroll-smooth ${instrumentSerif.variable} ${dmSans.variable}`}>
       <head>
         {/* JSON-LD Structured Data */}
         <script

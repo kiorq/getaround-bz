@@ -5,27 +5,6 @@ import Link from "next/link";
 import { useForm } from "@formspree/react";
 import { siteConfig } from "@/config/site";
 
-// ─── Squiggle decoration (matches landing page) ───────────────────────────────
-function Squiggle({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      viewBox="0 0 120 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M60 10 C20 60, 100 110, 60 160 C20 210, 100 260, 60 310 C20 360, 80 390, 60 400"
-        stroke="#a8d800"
-        strokeWidth="18"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        opacity="0.18"
-      />
-    </svg>
-  );
-}
 
 // ─── Step definitions ─────────────────────────────────────────────────────────
 type Step =
@@ -215,14 +194,9 @@ export default function PlanPage() {
 
   return (
     <div
-      className="relative min-h-screen bg-white flex flex-col items-center justify-center px-5 py-16 overflow-hidden"
+      className="min-h-screen bg-white flex flex-col items-center justify-center px-5 py-16"
       style={{ fontFamily: "var(--font-body)" }}
     >
-      {/* ── Decorative squiggles — above brand and below form ────────────── */}
-      <Squiggle className="pointer-events-none absolute top-0 left-1/2 -translate-x-[280px] h-28 w-10 rotate-90 hidden sm:block" />
-      <Squiggle className="pointer-events-none absolute top-0 left-1/2 translate-x-[200px] h-28 w-10 rotate-90 hidden sm:block" />
-      <Squiggle className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-[280px] h-28 w-10 rotate-90 hidden sm:block" />
-      <Squiggle className="pointer-events-none absolute bottom-0 left-1/2 translate-x-[200px] h-28 w-10 rotate-90 hidden sm:block" />
       <main className="w-full max-w-md flex flex-col">
         {/* Brand + subtitle */}
         <div className="mb-10">
