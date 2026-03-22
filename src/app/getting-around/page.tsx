@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "How to Get Around Belize: Taxis, Ferries, Flights & More | GetAround",
   description:
-    "How to get around Belize — from the airport to San Pedro, Caye Caulker, and beyond. Learn about taxis, water taxis, buses, flights, and how to book reliable rides in advance.",
+    "Complete guide on how to get around Belize. Learn about taxis, water taxis, buses, domestic flights, and car rentals. Updated 2026 pricing for routes from Belize airport to San Pedro, Caye Caulker, and more.",
   keywords: [
     "how to get around Belize",
     "getting around Belize",
@@ -18,8 +19,10 @@ export const metadata: Metadata = {
     "Belize City taxi",
     "San Pedro taxi",
     "Caye Caulker taxi",
+    "Ambergris Caye taxi",
     "Belize ferry",
     "water taxi Belize",
+    "Belize water taxi",
     "San Pedro Belize Express",
     "Belize domestic flights",
     "Maya Island Air Belize",
@@ -28,19 +31,25 @@ export const metadata: Metadata = {
     "Belize shuttle",
     "rental car Belize",
     "golf cart rental Belize",
+    "golf cart San Pedro",
+    "golf cart Caye Caulker",
     "Ambergris Caye transportation",
     "Caye Caulker getting there",
     "Belize travel guide",
     "Belize car rental",
     "Belize boat",
     "Belize cycling",
-    "Belize hitchhiking",
+    "how to travel Belize",
+    "Belize airport to city",
+    "Belize airport taxi price",
+    "best way to get around Belize",
   ],
   openGraph: {
     title: "How to Get Around Belize | GetAround",
     description:
-      "Everything you need to know about getting around Belize — taxis, water taxis, buses, domestic flights, and how to book reliable rides in advance.",
+      "Complete guide on how to get around Belize — taxis, ferries, buses, flights, and car rentals with 2026 pricing.",
     type: "article",
+    url: `${siteConfig.url}/getting-around`,
     images: [
       {
         url: `${siteConfig.url}/ads/no-text/getaroundbz-notext-01.png`,
@@ -50,6 +59,72 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: `${siteConfig.url}/getting-around`,
+  },
+};
+
+const gettingAroundFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do you get around Belize without a car?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can get around Belize by taxi, public bus, water taxi, domestic flight, or rental car. Taxis are the most common for short trips, while buses are the cheapest option for longer journeys between towns.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there Uber or Lyft in Belize?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No, Uber and Lyft do not operate in Belize. Instead, travelers use traditional taxis, which can be arranged through hotels or at taxi stands. GetAround Belize offers a modern alternative for booking reliable taxi rides in advance.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much is a taxi from Belize airport to Belize City?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A taxi from Philip S. W. Goldson International Airport (BZE) to Belize City typically costs Bz$25–60 (approximately $12–30 USD).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much is the water taxi from Belize City to Caye Caulker?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Water taxi fares from Belize City to Caye Caulker typically cost Bz$20–50 (approximately $10–25 USD) one-way.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the best way to get from Belize airport to San Pedro?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best way to get from Philip S. W. Goldson Airport to San Pedro (Ambergris Caye) is to take a taxi or shuttle to the water taxi terminal in Belize City, then catch a ferry to San Pedro. Alternatively, you can book a combined transfer in advance through GetAround Belize.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you need a car to get around Belize?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No, you do not need a car to get around Belize. Public buses, taxis, and shuttles connect most destinations. For island visits like San Pedro or Caye Caulker, water taxis and golf carts are the main modes of transport.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does it cost to rent a car in Belize?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Car rental in Belize starts around US$50 per day. Gas costs approximately US$7 per gallon. Agencies are available at the airport, in Belize City, San Ignacio, and Placencia.",
+      },
+    },
+  ],
 };
 
 const transportOptions = [
@@ -300,6 +375,13 @@ export default function GettingAroundPage() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Schema for SEO */}
+        <Script
+          id="getting-around-faq-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(gettingAroundFaqSchema) }}
+        />
 
         {/* CTA */}
         <section className="bg-gray-900 text-white py-20">
