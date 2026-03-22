@@ -69,16 +69,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter / X
-  twitter: {
-    card:        "summary_large_image",
-    title:       "Taxi in Belize Made Easy",
-    description: "No apps. No confusion. Just reliable rides across Belize.",
-    site:        siteConfig.twitterHandle,
-    creator:     siteConfig.twitterHandle,
-    images:      [siteConfig.ogImage],
-  },
-
   // App / icon hints
   icons: {
     icon:    "/favicon.ico",

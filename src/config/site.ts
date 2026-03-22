@@ -18,7 +18,6 @@ export const siteConfig = {
   // ── URLs ─────────────────────────────────────────────────────────────────
   url:           process.env.NEXT_PUBLIC_SITE_URL        ?? "https://getaround.bz",
   ogImage:       "/og-image.png",   // place a 1200×630 image in /public
-  twitterHandle: process.env.NEXT_PUBLIC_TWITTER_HANDLE  ?? "@getaroundbz",
 
   // ── SEO ──────────────────────────────────────────────────────────────────
   seo: {
@@ -243,16 +242,9 @@ export const siteConfig = {
       {
         heading: "Product",
         links: [
-          { label: "Features",    href: "#features" },
+          { label: "Features",     href: "#features" },
           { label: "How It Works", href: "#how-it-works" },
-          { label: "FAQ",         href: "#faq" },
-        ],
-      },
-      {
-        heading: "Legal",
-        links: [
-          { label: "Terms of Service", href: "#" },
-          { label: "Privacy Policy",   href: "#" },
+          { label: "FAQ",          href: "#faq" },
         ],
       },
       {
@@ -286,7 +278,6 @@ interface SiteConfig {
   description: string;
   url: string;
   ogImage: string;
-  twitterHandle: string;
   seo: {
     title: string;
     titleTemplate: string;
