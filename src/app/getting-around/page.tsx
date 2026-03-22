@@ -121,11 +121,42 @@ const gettingAroundFaqSchema = {
       name: "How much does it cost to rent a car in Belize?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Car rental in Belize starts around US$50 per day. Gas costs approximately US$7 per gallon. Agencies are available at the airport, in Belize City, San Ignacio, and Placencia.",
+        text: "Car rental in Belize starts around US$50 per day. Gas costs approximately Bz$8 per gallon (~$4 USD). Agencies are available at the airport, in Belize City, San Ignacio, and Placencia.",
       },
     },
   ],
 };
+
+const faqItems = [
+  {
+    question: "How do you get around Belize without a car?",
+    answer: "You can get around Belize by taxi, public bus, water taxi, domestic flight, or rental car. Taxis are the most common for short trips, while buses are the cheapest option for longer journeys between towns.",
+  },
+  {
+    question: "Is there Uber or Lyft in Belize?",
+    answer: "No, Uber and Lyft do not operate in Belize. Instead, travelers use traditional taxis, which can be arranged through hotels or at taxi stands. GetAround Belize offers a modern alternative for booking reliable taxi rides in advance.",
+  },
+  {
+    question: "How much is a taxi from Belize airport to Belize City?",
+    answer: "A taxi from Philip S. W. Goldson International Airport (BZE) to Belize City typically costs Bz$25–60 (approximately $12–30 USD).",
+  },
+  {
+    question: "How much is the water taxi from Belize City to Caye Caulker?",
+    answer: "Water taxi fares from Belize City to Caye Caulker typically cost Bz$20–50 (approximately $10–25 USD) one-way.",
+  },
+  {
+    question: "What is the best way to get from Belize airport to San Pedro?",
+    answer: "The best way to get from Philip S. W. Goldson Airport to San Pedro (Ambergris Caye) is to take a taxi or shuttle to the water taxi terminal in Belize City, then catch a ferry to San Pedro. Alternatively, you can book a combined transfer in advance through GetAround Belize.",
+  },
+  {
+    question: "Do you need a car to get around Belize?",
+    answer: "No, you do not need a car to get around Belize. Public buses, taxis, and shuttles connect most destinations. For island visits like San Pedro or Caye Caulker, water taxis and golf carts are the main modes of transport.",
+  },
+  {
+    question: "How much does it cost to rent a car in Belize?",
+    answer: "Car rental in Belize starts around US$50 per day. Gas costs approximately Bz$8 per gallon (~$4 USD). Agencies are available at the airport, in Belize City, San Ignacio, and Placencia.",
+  },
+];
 
 const transportOptions = [
   {
@@ -373,6 +404,31 @@ export default function GettingAroundPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 max-w-4xl mx-auto px-5">
+          <h2
+            className="text-3xl sm:text-4xl text-gray-900 mb-12 text-center"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+          >
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqItems.map((item, index) => (
+              <details key={index} className="group border border-gray-200 rounded-xl">
+                <summary className="flex items-center justify-between cursor-pointer p-6 font-medium text-gray-900 hover:bg-gray-50 transition-colors list-none">
+                  <span className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{item.question}</span>
+                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  {item.answer}
+                </div>
+              </details>
+            ))}
           </div>
         </section>
 
