@@ -93,7 +93,7 @@ const transportOptions = [
     title: "Golf Carts & Bikes",
     description:
       "Once you're on the islands, golf carts are the most common way to get around San Pedro and Caye Caulker. Daily rentals are available and give you freedom to explore the caye at your leisure. Bike rentals are also available in San Ignacio and Placencia for around Bz$15–25 per day.",
-    image: null,
+    image: "/images/golf-cart.jpg",
   },
 ];
 
