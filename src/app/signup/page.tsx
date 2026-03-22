@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "@formspree/react";
 import { siteConfig } from "@/config/site";
+import { trackSignupStep, trackSignupSubmit, trackNavClick, trackSignupDropOff } from "@/lib/analytics";
 
 
 // ─── Step definitions ─────────────────────────────────────────────────────────
@@ -117,6 +118,17 @@ export default function PlanPage() {
   const step = STEPS[currentStep];
   const humanStep = currentStep + 1; // 1-indexed for display
 
+  // ── Track dropoff on page leave ──────────────────────────────────────────
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (phase === "questions") {
+        trackSignupDropOff(humanStep, step.id);
+      }
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [humanStep, step.id, phase]);
+
   // ── Fade transition helper ────────────────────────────────────────────────
   function transition(fn: () => void) {
     setVisible(false);
@@ -135,6 +147,7 @@ export default function PlanPage() {
     setEmailError("");
     transition(() => {
       setAnswers((a) => ({ ...a, email }));
+      trackSignupStep(1, "email");
       setCurrentStep((s) => s + 1);
     });
   }
@@ -143,6 +156,7 @@ export default function PlanPage() {
   function handleSingle(option: string) {
     transition(() => {
       setAnswers((a) => ({ ...a, [step.id]: option }));
+      trackSignupStep(humanStep, step.id);
       if (currentStep + 1 >= TOTAL_STEPS) {
         startProcessing();
       } else {
@@ -165,6 +179,7 @@ export default function PlanPage() {
     transition(() => {
       setAnswers((a) => ({ ...a, [step.id]: multiSelected }));
       setMultiSelected([]);
+      trackSignupStep(humanStep, step.id);
       if (currentStep + 1 >= TOTAL_STEPS) {
         startProcessing();
       } else {
@@ -176,6 +191,7 @@ export default function PlanPage() {
   // ── Processing → done ─────────────────────────────────────────────────────
   function startProcessing() {
     setPhase("processing");
+    trackSignupSubmit(true);
 
     // Build payload — all values must be strings (arrays → comma-joined)
     const payload: Record<string, string> = {};
@@ -265,6 +281,7 @@ export default function PlanPage() {
 
               <Link
                 href="/"
+                onClick={() => trackNavClick("Back to homepage")}
                 className="inline-block border border-gray-200 text-gray-600 text-sm font-medium px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
               >
                 Back to homepage
@@ -273,6 +290,7 @@ export default function PlanPage() {
                 Need a ride sooner?{" "}
                 <a
                   href={`mailto:${siteConfig.footer.columns[2]?.links[0]?.href?.replace("mailto:", "") ?? "hello@getaround.bz"}`}
+                  onClick={() => trackNavClick("Contact us")}
                   className="text-gray-600 underline underline-offset-2 hover:text-gray-900 transition-colors"
                 >
                   Contact us
