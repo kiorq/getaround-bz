@@ -195,7 +195,6 @@ export default function PlanPage() {
   return (
     <div
       className="min-h-screen bg-white flex flex-col items-center justify-center px-5 py-16"
-      style={{ fontFamily: "var(--font-body)" }}
     >
       <main className="w-full max-w-md flex flex-col">
         {/* Brand + subtitle */}

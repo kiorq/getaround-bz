@@ -50,7 +50,7 @@ function Squiggle({ className }: { className?: string }) {
 // ─── Logo — text only ─────────────────────────────────────────────────────────
 function Logo() {
   return (
-    <span className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight" style={{ fontFamily: "var(--font-body)" }}>
+    <span className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight">
       {siteConfig.nameDisplay.prefix}
       <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
     </span>
@@ -87,7 +87,7 @@ export default function Home() {
   const { nav, hero, features, howItWorks, faq, footer } = siteConfig;
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden" style={{ fontFamily: "var(--font-body)" }}>
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
 
       {/* ── Navbar ────────────────────────────────────────────────────────── */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
