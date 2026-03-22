@@ -83,11 +83,11 @@ const transportOptions = [
 ];
 
 const popularRoutes = [
-  { from: "Philip S. W. Goldson Airport", to: "Belize City", typical: "$75–$100 BZD" },
-  { from: "Philip S. W. Goldson Airport", to: "San Ignacio", typical: "$150–$200 BZD" },
-  { from: "Philip S. W. Goldson Airport", to: "Belmopan", typical: "$100–$125 BZD" },
-  { from: "Belize City", to: "Caye Caulker (ferry)", typical: "$20–$30 BZD" },
-  { from: "Belize City", to: "San Pedro (ferry)", typical: "$30–$40 BZD" },
+  { from: "Philip S. W. Goldson Airport", to: "Belize City", bzd: "$25–$60", usd: "$12–$30" },
+  { from: "Philip S. W. Goldson Airport", to: "San Ignacio", bzd: "$150–$300", usd: "$75–$150" },
+  { from: "Philip S. W. Goldson Airport", to: "Belmopan", bzd: "$100–$130", usd: "$50–$65" },
+  { from: "Belize City", to: "Caye Caulker (ferry)", bzd: "$20–$50", usd: "$10–$25" },
+  { from: "Belize City", to: "San Pedro (ferry)", bzd: "$38–$66", usd: "$19–$33" },
 ];
 
 const travelerTips = [
@@ -202,7 +202,10 @@ export default function GettingAroundPage() {
                         Route
                       </th>
                       <th className="text-right px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">
-                        Typical Fare
+                        BZD
+                      </th>
+                      <th className="text-right px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500">
+                        USD
                       </th>
                     </tr>
                   </thead>
@@ -215,7 +218,10 @@ export default function GettingAroundPage() {
                           <span className="text-gray-900 text-sm">{route.to}</span>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <span className="text-[#5f7800] font-medium text-sm">{route.typical}</span>
+                          <span className="text-[#5f7800] font-medium text-sm">{route.bzd}</span>
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <span className="text-gray-500 text-sm">{route.usd}</span>
                         </td>
                       </tr>
                     ))}
