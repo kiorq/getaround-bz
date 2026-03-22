@@ -75,7 +75,7 @@ const transportOptions = [
     title: "Private Shuttles",
     description:
       "Private shuttles offer door-to-door convenience with friendly, knowledgeable drivers who can share local insights along the way. Great for families, groups, or anyone who wants to sit back and enjoy the scenic drives. Book in advance to have a driver waiting when you arrive.",
-    image: null,
+    image: "/images/private-shuttle.jpg",
   },
   {
     title: "Public Buses",
