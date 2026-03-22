@@ -87,7 +87,7 @@ const transportOptions = [
     title: "Rental Cars",
     description:
       "Renting a car gives you flexibility to explore at your own pace. Agencies are available in Belize City, at the airport, San Ignacio, and Placencia. Driving is on the right side of the road. Keep in mind: car rental starts around US$50/day, gas costs about US$7/gallon, and gas stations are mostly in towns. Drivers are generally safe but be alert to unexpected overtaking. Avoid driving at night on rural roads.",
-    image: null,
+    image: "/images/car-rental.jpg",
   },
   {
     title: "Golf Carts & Bikes",
