@@ -76,8 +76,8 @@ export const siteConfig = {
 
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    headline: "Book a trusted taxi in Belize",
-    headlineAccent: "— no guessing.",
+    headline: "Skip the Taxi Hustle in Belize.",
+    headlineAccent: "Hustle",
     subheadline:
       "No apps, no confusion. Get matched with a verified local driver and know exactly who's picking you up — before they arrive.",
     primaryCta: {

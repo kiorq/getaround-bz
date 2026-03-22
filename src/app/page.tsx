@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 function Underline() {
   return (
     <span className="relative inline-block">
-      <span className="relative z-10">Hassle</span>
+      <span className="relative z-10">Hustle</span>
       <svg
         aria-hidden="true"
         className="absolute -bottom-2 left-0 w-full overflow-visible"
@@ -129,10 +129,9 @@ export default function Home() {
           className="text-5xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-gray-900 mb-6"
           style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
         >
-          {hero.headline}<br />
-          Without the{" "}
+          Skip the Taxi{" "}
           <span className="text-[#5f7800]"><Underline /></span>
-          .
+          {" "}in Belize.
         </h1>
 
         {/* Subheadline — DM Sans, lighter weight */}
