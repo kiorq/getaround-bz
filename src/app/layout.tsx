@@ -3,6 +3,7 @@ import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { FaqSchema } from "@/components/FaqSchema";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -100,6 +101,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteConfig.jsonLd) }}
         />
+        <FaqSchema />
       </head>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         {children}
