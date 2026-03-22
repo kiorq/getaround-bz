@@ -290,6 +290,7 @@ export const siteConfig = {
         heading: "Company",
         links: [
           { label: "Press & Media", href: "/press" },
+          { label: "Getting Around Belize", href: "/getting-around" },
         ],
       },
       {
