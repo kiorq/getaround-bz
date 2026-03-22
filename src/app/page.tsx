@@ -1,7 +1,5 @@
-"use client";
-
 import { siteConfig } from "@/config/site";
-import { trackCtaClick, trackNavClick } from "@/lib/analytics";
+import { CtaButton, NavLink } from "@/components/AnalyticsLinks";
 
 // ─── Decorative SVG underline (hand-drawn feel) ───────────────────────────────
 function Underline() {
@@ -98,18 +96,19 @@ export default function Home() {
           <Logo />
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-500">
             {nav.links.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => trackNavClick(link.label)} className="hover:text-gray-900 transition-colors">
+              <NavLink key={link.href} href={link.href} label={link.label} className="hover:text-gray-900 transition-colors">
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
-          <a
+          <CtaButton
             href={nav.cta.href}
-            onClick={() => trackCtaClick(nav.cta.label, "navbar")}
+            label={nav.cta.label}
+            location="navbar"
             className="bg-[#a8d800] text-black text-sm font-bold px-5 py-2 rounded-full hover:bg-[#94c200] transition-colors"
           >
             {nav.cta.label}
-          </a>
+          </CtaButton>
         </div>
       </nav>
 
@@ -145,21 +144,23 @@ export default function Home() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-          <a
+          <CtaButton
             href={hero.primaryCta.href}
-            onClick={() => trackCtaClick(hero.primaryCta.label, "hero")}
+            label={hero.primaryCta.label}
+            location="hero"
             className="w-full sm:w-auto bg-[#a8d800] text-black font-bold px-10 py-4 rounded-full hover:bg-[#94c200] transition-colors shadow-lg shadow-[#a8d800]/20 text-base"
           >
             {hero.primaryCta.label}
-          </a>
+          </CtaButton>
           {hero.secondaryCta && (
-            <a
+            <CtaButton
               href={hero.secondaryCta.href}
-              onClick={() => hero.secondaryCta && trackCtaClick(hero.secondaryCta.label, "hero")}
+              label={hero.secondaryCta.label}
+              location="hero"
               className="w-full sm:w-auto border border-gray-200 text-gray-700 font-medium px-10 py-4 rounded-full hover:bg-gray-100 hover:border-gray-300 transition-colors text-base"
             >
               {hero.secondaryCta.label}
-            </a>
+            </CtaButton>
           )}
         </div>
 
@@ -348,13 +349,13 @@ export default function Home() {
             <p className="text-gray-500 text-sm mb-1">{faq.driverCta.question}</p>
             <p className="text-gray-500 text-sm">
               {faq.driverCta.answer}{" "}
-              <a
+              <NavLink
                 href={faq.driverCta.linkHref}
-                onClick={() => trackNavClick(faq.driverCta.linkLabel)}
+                label={faq.driverCta.linkLabel}
                 className="text-gray-500 underline underline-offset-2 hover:text-gray-700 transition-colors"
               >
                 {faq.driverCta.linkLabel}
-              </a>
+              </NavLink>
             </p>
           </div>
         </div>
@@ -380,20 +381,21 @@ export default function Home() {
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} onClick={() => trackNavClick(link.label)} className="text-gray-500 text-sm hover:text-white transition-colors">
+                    <NavLink href={link.href} label={link.label} className="text-gray-500 text-sm hover:text-white transition-colors">
                       {link.label}
-                    </a>
+                    </NavLink>
                   </li>
                 ))}
                 {col.heading === "Contact" && (
                   <li className="mt-3">
-                    <a
+                    <CtaButton
                       href={footer.cta.href}
-                      onClick={() => trackCtaClick(footer.cta.label, "footer")}
+                      label={footer.cta.label}
+                      location="footer"
                       className="inline-flex items-center gap-2 bg-[#a8d800] text-black text-xs font-bold px-4 py-2 rounded-full hover:bg-[#94c200] transition-colors"
                     >
                       {footer.cta.label}
-                    </a>
+                    </CtaButton>
                   </li>
                 )}
               </ul>
