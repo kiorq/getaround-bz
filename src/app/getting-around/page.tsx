@@ -81,7 +81,7 @@ const transportOptions = [
     title: "Public Buses",
     description:
       "Belize's bus network connects all major towns and villages and is the cheapest way to travel. Express buses connect major cities like Belize City, Belmopan, and San Ignacio — the longest trip (Belize City to Punta Gorda) costs only Bz$25. For villages off the main highways, local buses run once or twice daily. You can catch them at terminals or flag them down on the roadside.",
-    image: null,
+    image: "/images/bus.jpg",
   },
   {
     title: "Rental Cars",
