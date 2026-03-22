@@ -84,7 +84,7 @@ const icons: Record<string, React.ReactNode> = {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Home() {
-  const { nav, hero, features, howItWorks, faq, footer } = siteConfig;
+  const { nav, hero, painPoints, features, howItWorks, faq, footer } = siteConfig;
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
@@ -167,6 +167,31 @@ export default function Home() {
               {badge}
             </span>
           ))}
+        </div>
+      </section>
+
+      {/* ── Pain Points ───────────────────────────────────────────────────── */}
+      <section className="py-24">
+        <div className="max-w-6xl mx-auto px-5">
+          <h2
+            className="text-4xl sm:text-5xl text-center text-gray-900 mb-16"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+          >
+            {painPoints.heading}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {painPoints.items.map((item) => (
+              <div key={item.title} className="border-b border-gray-200 pb-8">
+                <h3
+                  className="text-xl sm:text-2xl text-gray-900 mb-3"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed max-w-xl">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

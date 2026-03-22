@@ -21,10 +21,10 @@ export const siteConfig = {
 
   // ── SEO ──────────────────────────────────────────────────────────────────
   seo: {
-    title: "Belize Airport Taxi — Book in Advance | GetAround",
+    title: "Taxi in Belize Made Easy | GetAround",
     titleTemplate: "%s | GetAround Belize",   // used for inner pages
     description:
-      "Arrange your Belize airport transfer before you land. Verified drivers, upfront pricing, no waiting. Serving Belize City, San Pedro, Placencia & more.",
+      "Skip the unpredictable taxis. GetAround connects you with verified, reliable drivers across Belize — book ahead and know exactly who's picking you up.",
     keywords: [
       "Belize taxi",
       "taxi Belize airport",
@@ -34,11 +34,10 @@ export const siteConfig = {
       "taxi service Belize",
       "Belize City taxi",
       "San Pedro taxi",
-      "Belize airport taxi",
-      "taxi from Belize airport to San Ignacio",
+      "reliable taxi Belize",
+      "Belize taxi booking",
       "Belize transportation options",
       "how to get around Belize",
-      "Belize taxi price airport",
       "private driver Belize",
     ],
     robots: "index, follow",
@@ -90,6 +89,29 @@ export const siteConfig = {
       "Verified, licensed drivers",
       "Know your driver before pickup",
       "No negotiating or guesswork",
+    ],
+  },
+
+  // ── Pain Points ──────────────────────────────────────────────────────────
+  painPoints: {
+    heading: "Traveling around Belize shouldn't be this hard",
+    items: [
+      {
+        title: "Finding a ride at the airport is stressful",
+        description: "After landing, you're left figuring out who to trust and how to get to your destination.",
+      },
+      {
+        title: "You end up calling multiple drivers",
+        description: "Many travelers rely on saved numbers or hotel contacts — calling around until someone is available.",
+      },
+      {
+        title: "You don't know if your driver will show up",
+        description: "Booking through random contacts can leave you unsure if your ride will actually arrive.",
+      },
+      {
+        title: "Pricing isn't always clear",
+        description: "Fares can vary, and you may need to negotiate or second-guess what you're paying.",
+      },
     ],
   },
 
@@ -306,6 +328,10 @@ interface SiteConfig {
     heading: string;
     subheading: string;
     items: { title: string; description: string; icon: string }[];
+  };
+  painPoints: {
+    heading: string;
+    items: { title: string; description: string }[];
   };
   howItWorks: {
     heading: string;
