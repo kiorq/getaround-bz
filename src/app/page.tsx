@@ -182,9 +182,9 @@ export default function Home() {
           <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto text-lg">
             {painPoints.subheading}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-2 -mx-5 sm:mx-0 gap-px bg-gray-700">
             {painPoints.items.map((item, i) => (
-              <div key={item.title} className="bg-gray-900 p-10 group hover:bg-[#ef4444] transition-colors">
+              <div key={item.title} className="bg-gray-900 p-5 sm:p-10 group hover:bg-[#ef4444] transition-colors">
                 <div className="flex items-start gap-5">
                   <span
                     className="text-5xl font-black text-[#ef4444]/50 group-hover:text-black transition-colors leading-none mt-1"
