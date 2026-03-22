@@ -408,27 +408,27 @@ export default function GettingAroundPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 max-w-4xl mx-auto px-5">
-          <h2
-            className="text-3xl sm:text-4xl text-gray-900 mb-12 text-center"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-          >
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-4">
-            {faqItems.map((item, index) => (
-              <details key={index} className="group border border-gray-200 rounded-xl">
-                <summary className="flex items-center justify-between cursor-pointer p-6 font-medium text-gray-900 hover:bg-gray-50 transition-colors list-none">
-                  <span className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>{item.question}</span>
-                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                  {item.answer}
+        <section className="bg-gray-100 py-24">
+          <div className="max-w-3xl mx-auto px-5">
+            <h2
+              className="text-4xl sm:text-5xl text-center text-gray-900 mb-14"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+            >
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {faqItems.map((item) => (
+                <div key={item.question} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#a8d800]/30 transition-colors">
+                  <h3
+                    className="text-gray-900 text-lg mb-2"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                  >
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
                 </div>
-              </details>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
