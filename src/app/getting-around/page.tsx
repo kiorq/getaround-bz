@@ -56,37 +56,44 @@ const transportOptions = [
   {
     title: "Taxis",
     description:
-      "Taxis are the go-to option for getting around Belize. They're easy to spot — vehicles have green license plates. There's no Uber or Lyft here, so you'll arrange rides through your hotel or at taxi stands. Within towns, fares are typically Bz$8–10 fixed rate. From the airport to Belize City, expect to pay around $75–$100 BZD. Taxis accept both US and Belize currency.",
-  },
-  {
-    title: "Private Shuttles",
-    description:
-      "Private shuttles offer door-to-door convenience with friendly, knowledgeable drivers who can share local insights along the way. Great for families, groups, or anyone who wants to sit back and enjoy the scenic drives. Book in advance to have a driver waiting when you arrive.",
+      "Taxis are the go-to option for getting around Belize. They're easy to spot — vehicles have green license plates. There's no Uber or Lyft here, so you'll arrange rides through your hotel or at taxi stands. Within towns, fares are typically Bz$8–10 fixed rate. From the airport to Belize City, expect to pay around Bz$25–60. Taxis accept both US and Belize currency.",
+    image: "/images/belize-city-aerial.webp",
   },
   {
     title: "Water Taxis & Ferries",
     description:
       "To reach the islands, you'll need a water taxi. San Pedro Belize Express operates regular ferries between Belize City and both Caye Caulker and San Pedro (Ambergris Caye). Tickets typically cost Bz$25–45. Show up about 30 minutes before departure — there's usually plenty of room. There are also international water taxis to Guatemala and Mexico.",
+    image: "/images/ferry.webp",
   },
   {
     title: "Domestic Flights",
     description:
       "For a quick way to cover longer distances, Maya Island Air and Tropic Air offer flights from Philip S. W. Goldson International Airport to destinations like San Pedro, Placencia, Caye Caulker, Dangriga, and Corozal. Flights start at around Bz$70–90 and take just 15–20 minutes domestically. Ideal for time-conscious travelers or reaching places unreachable by road.",
+    image: "/images/san-pedro.webp",
+  },
+  {
+    title: "Private Shuttles",
+    description:
+      "Private shuttles offer door-to-door convenience with friendly, knowledgeable drivers who can share local insights along the way. Great for families, groups, or anyone who wants to sit back and enjoy the scenic drives. Book in advance to have a driver waiting when you arrive.",
+    image: null,
   },
   {
     title: "Public Buses",
     description:
       "Belize's bus network connects all major towns and villages and is the cheapest way to travel. Express buses connect major cities like Belize City, Belmopan, and San Ignacio — the longest trip (Belize City to Punta Gorda) costs only Bz$25. For villages off the main highways, local buses run once or twice daily. You can catch them at terminals or flag them down on the roadside.",
+    image: null,
   },
   {
     title: "Rental Cars",
     description:
       "Renting a car gives you flexibility to explore at your own pace. Agencies are available in Belize City, at the airport, San Ignacio, and Placencia. Driving is on the right side of the road. Keep in mind: car rental starts around US$50/day, gas costs about US$7/gallon, and gas stations are mostly in towns. Drivers are generally safe but be alert to unexpected overtaking. Avoid driving at night on rural roads.",
+    image: null,
   },
   {
     title: "Golf Carts & Bikes",
     description:
       "Once you're on the islands, golf carts are the most common way to get around San Pedro and Caye Caulker. Daily rentals are available and give you freedom to explore the caye at your leisure. Bike rentals are also available in San Ignacio and Placencia for around Bz$15–25 per day.",
+    image: null,
   },
 ];
 
@@ -131,20 +138,30 @@ export default function GettingAroundPage() {
       </nav>
 
       <main>
-        {/* Hero */}
-        <section className="max-w-4xl mx-auto px-5 pt-20 pb-16 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#a8d800] mb-4">
-            Transportation Guide
-          </p>
-          <h1
-            className="text-4xl sm:text-5xl text-gray-900 mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-          >
-            Getting Around Belize
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            From taxis and ferries to domestic flights and rental cars — here's what you need to know about navigating Belize.
-          </p>
+        {/* Hero with Image */}
+        <section className="relative">
+          <div className="h-64 sm:h-80 lg:h-96 overflow-hidden">
+            <img
+              src="/images/belize-city-aerial.webp"
+              alt="Aerial view of Belize City"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 max-w-4xl mx-auto px-5 pb-12 text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#a8d800] mb-4">
+              Transportation Guide
+            </p>
+            <h1
+              className="text-4xl sm:text-5xl text-white mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+            >
+              Getting Around Belize
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+              From taxis and ferries to domestic flights and rental cars — here's what you need to know.
+            </p>
+          </div>
         </section>
 
         {/* Intro */}
@@ -172,17 +189,28 @@ export default function GettingAroundPage() {
               {transportOptions.map((option) => (
                 <div
                   key={option.title}
-                  className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#a8d800]/40 transition-colors"
+                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#a8d800]/40 transition-colors"
                 >
-                  <h3
-                    className="text-xl text-gray-900 mb-3"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-                  >
-                    {option.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {option.description}
-                  </p>
+                  {option.image && (
+                    <div className="h-40 overflow-hidden">
+                      <img
+                        src={option.image}
+                        alt={option.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3
+                      className="text-xl text-gray-900 mb-3"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                    >
+                      {option.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {option.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
