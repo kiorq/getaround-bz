@@ -226,32 +226,27 @@ export const siteConfig = {
       {
         question: "Is there Uber or Lyft in Belize?",
         answer:
-          "No, Uber and Lyft don't operate in Belize. Instead, travelers in San Pedro, Ambergris Caye, Caye Caulker, Belize City, Belmopan, and Placencia rely on traditional taxis. GetAround Belize fills that gap by offering a reliable, modern booking experience for taxi rides across Belize.",
+          "No — Uber and Lyft don't operate in Belize. Instead, travelers in San Pedro, Caye Caulker, and Belize City rely on traditional taxis. GetAround Belize offers a simpler alternative by letting you pre-book a verified driver, so you don't have to figure things out when you arrive.",
       },
       {
         question: "What's the best way to get around Belize?",
         answer:
-          "For most travelers visiting San Pedro, Caye Caulker, or the mainland, pre-booking a taxi through GetAround Belize is the easiest and most reliable option. We connect you with verified local drivers in Belize City, Belmopan, San Ignacio, Hopkins, and Dangriga — so you know exactly who's picking you up.",
+          "The best way to get around Belize depends on where you're staying, but most travelers rely on taxis for getting between towns, airports, and ferry terminals. Pre-booking your ride is usually the easiest option, especially after a flight or when traveling between places like Belize City, San Pedro, or Placencia. GetAround Belize helps you arrange those rides in advance with verified local drivers.",
+      },
+      {
+        question: "Can I get a taxi from the airport in Belize?",
+        answer:
+          "Yes — taxis are available at Philip S. W. Goldson Airport. However, many travelers prefer to arrange their ride in advance so they don't have to decide on the spot. With GetAround Belize, you can pre-book your ride so your driver is ready when you arrive.",
+      },
+      {
+        question: "How much is a taxi from the Belize airport?",
+        answer:
+          "Taxi prices from Philip S. W. Goldson Airport vary depending on your destination. For trips within Belize City, fares typically range from $75 to $100 BZD. Longer distances like to San Ignacio or Belmopan cost more. Many travelers prefer to arrange their ride in advance so they know what to expect. GetAround Belize helps you book a ride ahead of time with a verified driver.",
       },
       {
         question: "How does GetAround Belize work?",
         answer:
           "Enter your route and we connect you with a verified, licensed taxi driver for your trip. Your ride is arranged in advance, so you don't need to search, call around, or negotiate.",
-      },
-      {
-        question: "Is there a ride app in Belize?",
-        answer:
-          "Unlike other countries, Belize doesn't have ride-hailing apps like Uber or Lyft. GetAround Belize is building a modern alternative for San Pedro, Caye Caulker, Belize City, Belmopan, and all of Belize — a simple way to book reliable taxi rides in advance through your browser.",
-      },
-      {
-        question: "Can I get a taxi from the airport in Belize?",
-        answer:
-          "Yes, but traditional airport taxis can be unreliable. With GetAround Belize, you can pre-book your ride from Philip S. W. Goldson Airport to San Pedro, Belize City, Belmopan, or anywhere else — so your driver is waiting when you land.",
-      },
-      {
-        question: "How do I get around if I'm staying in Belize City?",
-        answer:
-          "Getting around Belize City is easy with GetAround Belize. We connect you with verified taxi drivers for trips from Belize City to Belmopan, San Ignacio, the airport, or any other destination in Belize.",
       },
       {
         question: "Are the drivers verified?",
@@ -261,17 +256,12 @@ export const siteConfig = {
       {
         question: "Is this like Uber?",
         answer:
-          "No. We work with licensed Belize taxi drivers — not replace them. GetAround Belize makes those rides more reliable and organized for travelers heading to San Pedro, Placencia, Hopkins, or anywhere in between.",
+          "No. We work with licensed Belize taxi drivers — not replace them. GetAround Belize simply makes those rides easier to book and more reliable for travelers.",
       },
       {
         question: "Can I book ahead of time?",
         answer:
-          "Yes. You can plan your ride from Belize City to San Ignacio, Hopkins to Dangriga, or any route across Belize in advance so everything is arranged before you need it.",
-      },
-      {
-        question: "What if I need help with my ride?",
-        answer:
-          "Support is available if you need assistance before or during your trip.",
+          "Yes. You can plan your ride from Belize City to San Ignacio, or any route across Belize, in advance so everything is arranged before you need it.",
       },
     ],
     // Shown separately at the bottom of the FAQ — lower visual weight
