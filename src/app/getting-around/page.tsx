@@ -23,12 +23,18 @@ export const metadata: Metadata = {
     "San Pedro Belize Express",
     "Belize domestic flights",
     "Maya Island Air Belize",
+    "Tropic Air Belize",
     "Belize bus",
     "Belize shuttle",
     "rental car Belize",
     "golf cart rental Belize",
     "Ambergris Caye transportation",
     "Caye Caulker getting there",
+    "Belize travel guide",
+    "Belize car rental",
+    "Belize boat",
+    "Belize cycling",
+    "Belize hitchhiking",
   ],
   openGraph: {
     title: "How to Get Around Belize | GetAround",
@@ -42,37 +48,37 @@ const transportOptions = [
   {
     title: "Taxis",
     description:
-      "Taxis are the go-to option for getting around Belize, whether you need a ride within Belize City or a longer trip to Belmopan or Hopkins. There's no Uber or Lyft here — so you'll arrange taxis through your hotel or at taxi stands. From the airport to Belize City, expect to pay around $75–$100 BZD.",
+      "Taxis are the go-to option for getting around Belize. They're easy to spot — vehicles have green license plates. There's no Uber or Lyft here, so you'll arrange rides through your hotel or at taxi stands. Within towns, fares are typically Bz$8–10 fixed rate. From the airport to Belize City, expect to pay around $75–$100 BZD. Taxis accept both US and Belize currency.",
+  },
+  {
+    title: "Private Shuttles",
+    description:
+      "Private shuttles offer door-to-door convenience with friendly, knowledgeable drivers who can share local insights along the way. Great for families, groups, or anyone who wants to sit back and enjoy the scenic drives. Book in advance to have a driver waiting when you arrive.",
   },
   {
     title: "Water Taxis & Ferries",
     description:
-      "To reach the islands, you'll need a water taxi. San Pedro Belize Express operates regular ferries between Belize City and both Caye Caulker and San Pedro (Ambergris Caye). The scenic ride takes 30–75 minutes depending on your destination.",
+      "To reach the islands, you'll need a water taxi. San Pedro Belize Express operates regular ferries between Belize City and both Caye Caulker and San Pedro (Ambergris Caye). Tickets typically cost Bz$25–45. Show up about 30 minutes before departure — there's usually plenty of room. There are also international water taxis to Guatemala and Mexico.",
   },
   {
     title: "Domestic Flights",
     description:
-      "For a quick way to cover longer distances, Maya Island Air and Tropic Air offer flights from Philip S. W. Goldson International Airport to destinations like San Pedro. Flights take just 15–20 minutes, making them ideal for time-conscious travelers.",
-  },
-  {
-    title: "Shuttles",
-    description:
-      "Private shuttles are a convenient option, especially for airport transfers or trips between major destinations like the airport and San Ignacio. Book in advance to have a driver waiting when you arrive.",
+      "For a quick way to cover longer distances, Maya Island Air and Tropic Air offer flights from Philip S. W. Goldson International Airport to destinations like San Pedro, Placencia, Caye Caulker, Dangriga, and Corozal. Flights start at around Bz$70–90 and take just 15–20 minutes domestically. Ideal for time-conscious travelers or reaching places unreachable by road.",
   },
   {
     title: "Public Buses",
     description:
-      "Belize's bus network connects all major towns and villages. The older 'chicken buses' are budget-friendly, while express buses offer a faster, more comfortable ride between cities like Belize City, Belmopan, and San Ignacio.",
+      "Belize's bus network connects all major towns and villages and is the cheapest way to travel. Express buses connect major cities like Belize City, Belmopan, and San Ignacio — the longest trip (Belize City to Punta Gorda) costs only Bz$25. For villages off the main highways, local buses run once or twice daily. You can catch them at terminals or flag them down on the roadside.",
   },
   {
     title: "Rental Cars",
     description:
-      "Renting a car gives you flexibility to explore at your own pace. Driving is on the right side of the road, and major highways connect key areas. Note that some rural roads are unpaved, and it's best to avoid driving at night.",
+      "Renting a car gives you flexibility to explore at your own pace. Agencies are available in Belize City, at the airport, San Ignacio, and Placencia. Driving is on the right side of the road. Keep in mind: car rental starts around US$50/day, gas costs about US$7/gallon, and gas stations are mostly in towns. Drivers are generally safe but be alert to unexpected overtaking. Avoid driving at night on rural roads.",
   },
   {
     title: "Golf Carts & Bikes",
     description:
-      "Once you're on the islands, golf carts are the most common way to get around San Pedro and Caye Caulker. Daily rentals are available and give you freedom to explore the caye at your leisure.",
+      "Once you're on the islands, golf carts are the most common way to get around San Pedro and Caye Caulker. Daily rentals are available and give you freedom to explore the caye at your leisure. Bike rentals are also available in San Ignacio and Placencia for around Bz$15–25 per day.",
   },
 ];
 
