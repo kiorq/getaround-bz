@@ -101,7 +101,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`h-full antialiased scroll-smooth ${instrumentSerif.variable}`}>
+    <html lang="en" className={`h-full antialiased scroll-smooth ${instrumentSerif.variable} ${dmSans.variable}`}>
       <head>
         {/* JSON-LD Structured Data */}
         <script
@@ -109,7 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteConfig.jsonLd) }}
         />
       </head>
-      <body className={`min-h-full flex flex-col bg-white text-gray-900 ${dmSans.className}`}>
+      <body className="min-h-full flex flex-col bg-white text-gray-900">
         {children}
       </body>
     </html>
