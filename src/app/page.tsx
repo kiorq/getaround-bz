@@ -196,11 +196,11 @@ export default function Home() {
             {features.items.map((item, i) => (
               <div
                 key={item.title}
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-6 py-10 group"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-8 py-10 group"
               >
                 {/* Big number */}
                 <span
-                  className="text-7xl sm:text-8xl font-black text-gray-300 group-hover:text-[#a8d800]/40 transition-colors select-none leading-none shrink-0 w-24 text-center"
+                  className="text-7xl sm:text-8xl font-black text-gray-300 group-hover:text-[#a8d800]/40 transition-colors select-none leading-none shrink-0 w-28 text-left"
                   style={{ fontFamily: "var(--font-display)" }}
                   aria-hidden="true"
                 >
