@@ -180,39 +180,33 @@ export default function Home() {
             {painPoints.heading}
           </h2>
           <p className="text-gray-400 text-center mb-16 max-w-xl mx-auto text-lg">
-            The usual way things work in Belize
+            {painPoints.subheading}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-700">
             {painPoints.items.map((item, i) => (
-              <div key={item.title} className="bg-gray-900 p-10 group hover:bg-gray-800 transition-colors">
+              <div key={item.title} className="bg-gray-900 p-10 group hover:bg-[#ef4444] transition-colors">
                 <div className="flex items-start gap-5">
                   <span
-                    className="text-5xl font-black text-[#ef4444]/30 group-hover:text-[#ef4444]/50 transition-colors leading-none mt-1"
+                    className="text-5xl font-black text-[#ef4444]/50 group-hover:text-black transition-colors leading-none mt-1"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg className="w-5 h-5 text-[#ef4444]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
                       <h3
-                        className="text-xl sm:text-2xl text-white"
-                        style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                      className="text-xl sm:text-2xl text-white group-hover:text-black transition-colors"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400 group-hover:text-gray-900 transition-colors leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-center mt-12 text-lg">
-            <span className="text-gray-400">Sound familiar?</span>{" "}
-            <span className="text-[#a8d800] font-bold">GetAround Belize fixes this.</span>
+          <p className="text-center mt-12 text-lg text-[#a8d800] font-bold">
+            {painPoints.bridge}
           </p>
         </div>
       </section>

@@ -95,24 +95,26 @@ export const siteConfig = {
   // ── Pain Points ──────────────────────────────────────────────────────────
   painPoints: {
     heading: "Traveling around Belize shouldn't be this hard",
+    subheading: "This is how most travelers end up getting around",
     items: [
       {
-        title: "Finding a ride at the airport is stressful",
+        title: "Finding a ride at the airport is confusing",
         description: "After landing, you're left figuring out who to trust and how to get to your destination.",
       },
       {
-        title: "You end up calling multiple drivers",
-        description: "Many travelers rely on saved numbers or hotel contacts — calling around until someone is available.",
+        title: "You end up calling multiple drivers just to find one available",
+        description: "Many travelers rely on saved numbers or hotel contacts — calling around until someone finally picks up.",
       },
       {
-        title: "You don't know if your driver will show up",
-        description: "Booking through random contacts can leave you unsure if your ride will actually arrive.",
+        title: "You're not sure if your driver will actually show up",
+        description: "Booking through random contacts can leave you unsure if your ride will arrive on time.",
       },
       {
-        title: "Pricing isn't always clear",
+        title: "You're not sure if you're paying a fair price",
         description: "Fares can vary, and you may need to negotiate or second-guess what you're paying.",
       },
     ],
+    bridge: "GetAround Belize removes the guesswork.",
   },
 
   // ── Features ─────────────────────────────────────────────────────────────
@@ -331,7 +333,9 @@ interface SiteConfig {
   };
   painPoints: {
     heading: string;
+    subheading: string;
     items: { title: string; description: string }[];
+    bridge: string;
   };
   howItWorks: {
     heading: string;
