@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { siteConfig } from "@/config/site";
 
 const withText = [
@@ -25,10 +26,7 @@ export default function PressPage() {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-xl text-gray-900 tracking-tight hover:opacity-80 transition-opacity">
-            {siteConfig.nameDisplay.prefix}
-            <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
-          </Link>
+          <Logo href="/" className="hover:opacity-80 transition-opacity" />
           <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
             ← Back to site
           </Link>

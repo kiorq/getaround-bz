@@ -56,14 +56,7 @@ const STEPS: Step[] = [
 const TOTAL_STEPS = STEPS.length; // excluding processing + final
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
-function Logo() {
-  return (
-    <Link href="/" className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight hover:opacity-80 transition-opacity">
-      {siteConfig.nameDisplay.prefix}
-      <span className="text-[#a8d800]">{siteConfig.nameDisplay.suffix}</span>
-    </Link>
-  );
-}
+import { Logo } from "@/components/Logo";
 
 // ─── Progress bar — segmented ─────────────────────────────────────────────────
 function ProgressBar({ step, total }: { step: number; total: number }) {
@@ -215,7 +208,7 @@ export default function PlanPage() {
       <main className="w-full max-w-md flex flex-col">
         {/* Brand + subtitle */}
         <div className="mb-10">
-          <Logo />
+          <Logo href="/" className="hover:opacity-80 transition-opacity" />
           {phase === "questions" && (
             <span className="text-xs text-gray-500 mt-1 block">
               Set up your ride details

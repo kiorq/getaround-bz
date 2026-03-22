@@ -48,15 +48,7 @@ function Squiggle({ className }: { className?: string }) {
   );
 }
 
-// ─── Logo — text only ─────────────────────────────────────────────────────────
-function Logo() {
-  return (
-    <span className="font-bold text-2xl sm:text-3xl text-gray-900 tracking-tight">
-      {siteConfig.nameDisplay.prefix}
-      <span className="text-[#5f7800]">{siteConfig.nameDisplay.suffix}</span>
-    </span>
-  );
-}
+import { Logo } from "@/components/Logo";
 
 // ─── Feature icon map ─────────────────────────────────────────────────────────
 const icons: Record<string, React.ReactNode> = {
