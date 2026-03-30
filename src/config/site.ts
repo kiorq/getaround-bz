@@ -63,87 +63,115 @@ export const siteConfig = {
   // ── Navigation ────────────────────────────────────────────────────────────
   nav: {
     links: [
-      { label: "Features",    href: "#features" },
       { label: "How It Works", href: "#how-it-works" },
-      { label: "FAQ",         href: "#faq" },
+      { label: "Features",     href: "#features" },
+      { label: "FAQ",          href: "#faq" },
     ],
     cta: {
-      label: "Plan your ride",
-      href:  "/signup",
+      label: "Check your route",
+      href:  "/route-check",
     },
   },
 
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    headline: "Skip the Taxi Hustle in Belize.",
-    headlineAccent: "Hustle",
+    headline: "Know your ride before you land in Belize.",
+    headlineAccent: "before",
     subheadline:
-      "No apps, no confusion. Get matched with a verified local driver and know exactly who's picking you up — before they arrive.",
+      "No app downloads. No airport guesswork. See what to expect, who might pick you up, and how to get moving — before your trip.",
     primaryCta: {
-      label: "Plan your ride",
-      href:  "/signup",
+      label: "Check your route",
+      href:  "/route-check",
     },
-    secondaryCta: null as null | { label: string; href: string },
-    // Trust signals shown below the CTA
+    secondaryCta: { label: "See a sample ride", href: "#sample-ride" } as null | { label: string; href: string },
     trustBadges: [
-      "Verified, licensed drivers",
-      "Know your driver before pickup",
-      "No negotiating or guesswork",
+      "Verified local drivers",
+      "Clear pickup expectations",
+      "Built for Belize travel",
+    ],
+  },
+
+  // ── Social proof strip ────────────────────────────────────────────────────
+  socialProof: {
+    headline: "Designed for travelers navigating Belize for the first time",
+    items: [
+      "No Uber or Lyft in Belize",
+      "Avoid last-minute airport confusion",
+      "Know what to expect before you arrive",
     ],
   },
 
   // ── Pain Points ──────────────────────────────────────────────────────────
   painPoints: {
-    heading: "Traveling around Belize shouldn't be this hard",
-    subheading: "This is how most travelers end up getting around",
+    heading: "What usually happens when you land in Belize",
+    subheading: "Most travelers figure it out after they arrive. That's the problem.",
     items: [
       {
-        title: "Finding a ride at the airport is confusing",
-        description: "After landing, you're left figuring out who to trust and how to get to your destination.",
+        title: "You land tired and still have to figure out who to trust",
+        description: "After a long flight, the last thing you want is to size up strangers outside arrivals with no reference point.",
       },
       {
-        title: "You end up calling multiple drivers just to find one available",
+        title: "You message around or ask your hotel just to find a driver",
         description: "Many travelers rely on saved numbers or hotel contacts — calling around until someone finally picks up.",
       },
       {
-        title: "You're not sure if your driver will actually show up",
+        title: "You're not sure if the driver will actually show up",
         description: "Booking through random contacts can leave you unsure if your ride will arrive on time.",
       },
       {
-        title: "You're not sure if you're paying a fair price",
-        description: "Fares can vary, and you may need to negotiate or second-guess what you're paying.",
+        title: "You don't know what a fair price looks like",
+        description: "Fares vary and there's no reference — you either overpay or spend energy negotiating at the curb.",
       },
     ],
-    bridge: "GetAround Belize removes the guesswork.",
+    bridge: "GetAround Belize is built to remove that uncertainty.",
+  },
+
+  // ── Sample ride ──────────────────────────────────────────────────────────
+  sampleRide: {
+    heading: "Here's what a simple ride could look like",
+    subheading: "You know what to expect before your plane lands.",
+    cta: { label: "Check your route", href: "/route-check" },
+    card: {
+      route: "BZE Airport → San Pedro",
+      driver: "Carlos R.",
+      vehicle: "Ford Transit Van",
+      pickup: "Meet outside arrivals — sign with your name",
+      contact: "WhatsApp message sent before arrival",
+      notes: [
+        "Knows your arrival time",
+        "Fixed expectation of the ride",
+        "No negotiating at the airport",
+      ],
+    },
   },
 
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
-    heading: "Everything you need for a reliable ride in Belize",
-    subheading: "Travel Belize with confidence",
+    heading: "Why this feels easier than figuring it out yourself",
+    subheading: "Built around how travelers actually move through Belize",
     items: [
       {
-        title: "Trusted Local Drivers",
+        title: "Know your driver ahead of time",
         description:
-          "Every driver is vetted, licensed, and rated by real travelers. You'll know who's picking you up before they arrive.",
+          "No guessing who's picking you up. You see the driver's name and vehicle before they arrive.",
         icon: "shield-check",
       },
       {
-        title: "No Apps or Downloads Needed",
+        title: "No apps or downloads",
         description:
-          "Book directly from your browser. No installs, no accounts required — just enter where you're going and you're set.",
+          "Simple and direct — works with how people already travel. No account, no install, no friction.",
         icon: "clock",
       },
       {
-        title: "Know Your Ride in Advance",
+        title: "Built for Belize travel reality",
         description:
-          "See your driver's name, photo, and vehicle before pickup. No surprises, no anxiety.",
+          "Airport pickups, island transfers, intercity routes. Designed around the routes travelers actually need.",
         icon: "map-pin",
       },
       {
-        title: "Available Across Belize",
+        title: "Clear next steps, not guesswork",
         description:
-          "From Belize City to San Pedro, Placencia to San Ignacio — we've got drivers ready wherever you're headed.",
+          "You're not left figuring things out last minute. Every step is laid out before you need it.",
         icon: "credit-card",
       },
     ],
@@ -151,26 +179,26 @@ export const siteConfig = {
 
   // ── How It Works ─────────────────────────────────────────────────────────
   howItWorks: {
-    heading: "Get started in seconds",
-    subheading: "Three simple steps to your first ride",
+    heading: "How it works",
+    subheading: "Simple and honest about where things stand",
     steps: [
       {
         number: "01",
-        title: "Enter your route",
+        title: "Tell us your route",
         description:
-          "Tell us where you're headed and when. Takes less than a minute.",
+          "Where you're landing and where you're headed. Takes less than a minute.",
       },
       {
         number: "02",
-        title: "We match you with a verified driver",
+        title: "We check availability",
         description:
-          "We find a licensed, rated local driver for your trip — no guesswork on your end.",
+          "We're rolling out routes carefully to keep every ride reliable and consistent.",
       },
       {
         number: "03",
-        title: "Get your ride details before pickup",
+        title: "Get notified or guided next",
         description:
-          "See your driver's name and vehicle before they arrive. You're in control.",
+          "We'll let you know when your route is ready — or point you in the right direction if your trip is soon.",
       },
     ],
   },
@@ -304,8 +332,8 @@ export const siteConfig = {
       },
     ],
     cta: {
-      label: "Plan your ride",
-      href:  "/signup",
+      label: "Check your route",
+      href:  "/route-check",
     },
     copyright: process.env.NEXT_PUBLIC_COPYRIGHT ?? "© 2026 GetAround Belize. All rights reserved.",
   },
@@ -342,6 +370,10 @@ interface SiteConfig {
     secondaryCta: CtaButton | null;
     trustBadges: string[];
   };
+  socialProof: {
+    headline: string;
+    items: string[];
+  };
   features: {
     heading: string;
     subheading: string;
@@ -352,6 +384,19 @@ interface SiteConfig {
     subheading: string;
     items: { title: string; description: string }[];
     bridge: string;
+  };
+  sampleRide: {
+    heading: string;
+    subheading: string;
+    cta: CtaButton;
+    card: {
+      route: string;
+      driver: string;
+      vehicle: string;
+      pickup: string;
+      contact: string;
+      notes: string[];
+    };
   };
   howItWorks: {
     heading: string;
